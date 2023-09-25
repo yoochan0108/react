@@ -1,15 +1,18 @@
 import Footer from './compornents/Footer';
 import Header from './compornents/Header';
+import List from './compornents/List';
 import Popup from './compornents/Popup';
 import './style.scss';
 
 function App() {
 	let isPop = true;
+	let isFooter = false;
 	return (
 		<>
 			<Header />
-			<Footer />
+			{isFooter && <Footer />}
 			{isPop ? <Popup /> : null}
+			<List />
 		</>
 	);
 }

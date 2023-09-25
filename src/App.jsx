@@ -13,18 +13,19 @@ import './style.scss';
 //참조링크가 담겨있는 변수를 새로운 변수에 옮겨담으면 값이 복사되는 것이 참조링크만 복사됨
 //결국 같은 값을 가리키고 있는 두개의 링크만 복사가됨
 //복사가된 링크의 값을 바꾸면 결국 원본값이 회손됨(shallow copy) 불편성 유지 안됨
+
+//리엑트 개방ㄹ시 불편성이 중요한 이유
+//리엑트는 원본이 있어야 복사본을 통해서 차이점을 비교분석
+//리엑트안에서 배열이나, 객체같은 참조형 자료는 무조건 deep copy를 해서 데이터를 변경해야됨
+
 function App() {
 	let arr = ['reading', 'gmae', 'cook'];
-	let newArr = arr;
+	//전개연산자 (Spreed Operator) : heep메모리에 있는 값을 물리적으로 꺼내서 전개
+	//전개연산자를 이용하면 원본을 훼손시키지 않으면 참조형 자료를 deep copy가능
+	let newArr = [...arr];
 	newArr[0] = 'exercise';
 	console.log(newArr);
 	console.log(arr);
-
-	let abc = 'Hello';
-	let bbc = abc;
-	bbc = 'World';
-	console.log(bbc);
-	console.log(abc);
 
 	let isPop = true;
 	let isFooter = false;

@@ -1,5 +1,17 @@
+import Footer from './compornents/Footer';
+import Header from './compornents/Header';
+import Popup from './compornents/Popup';
+import './style.scss';
+
 function App() {
-	return <h1>Hello</h1>;
+	let isPop = true;
+	return (
+		<>
+			<Header />
+			<Footer />
+			{isPop ? <Popup /> : null}
+		</>
+	);
 }
 
 export default App;
@@ -26,4 +38,12 @@ export default App;
 	
 	JSX
 	- 리엑트에 DOM을 효율적으로 생성하기 위한 HTML의 규칙성을 따라한 자바스크립트 돔 제작 방식
+
+	컴포넌트 생성시 주의점
+	- 무조건 JSX를 리턴
+	- 함수 이름은 대문자로 시작
+	- export 로 내보야지 다른 컴포넌트에서 불러올 수 있음
+	- 하나의 컴포넌트 함수는 단인 JSX를 리턴 가능
+	- 복수개의 JSX를 리턴하고 싶을때는 wrapping El로 묶어서 그룹화한뒤 리턴
+	- 중첩된 Element노드를 생성하지 않고 복수개의 JSX를 리턴하고 싶을때는 <></> Fr
 */

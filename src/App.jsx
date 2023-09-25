@@ -4,7 +4,28 @@ import List from './compornents/List';
 import Popup from './compornents/Popup';
 import './style.scss';
 
+//원시형자료는 : 메모리, 값 자체가 callstack에서 생성된 다음에 저장
+//원시형자료는 변수값을 다른 변수에 복사했을때 값 자체가 복사되는 deep copy;
+//복사된 값울 변경해도 원본은 그대로 유지되는 불편성 유지 (immutable);
+
+//참조형자료는 : 메모리(callstack), 배열, 객체등의 값 자체는 (heep memory) 셍성돔
+//callstack에 있는 메모리에는 배열의 값 자체가 담기는게 아닌 한메모리에 있는 값의 위치값이 담김
+//참조링크가 담겨있는 변수를 새로운 변수에 옮겨담으면 값이 복사되는 것이 참조링크만 복사됨
+//결국 같은 값을 가리키고 있는 두개의 링크만 복사가됨
+//복사가된 링크의 값을 바꾸면 결국 원본값이 회손됨(shallow copy) 불편성 유지 안됨
 function App() {
+	let arr = ['reading', 'gmae', 'cook'];
+	let newArr = arr;
+	newArr[0] = 'exercise';
+	console.log(newArr);
+	console.log(arr);
+
+	let abc = 'Hello';
+	let bbc = abc;
+	bbc = 'World';
+	console.log(bbc);
+	console.log(abc);
+
 	let isPop = true;
 	let isFooter = false;
 	return (

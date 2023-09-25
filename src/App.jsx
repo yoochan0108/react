@@ -1,28 +1,19 @@
-import Footer from './compornents/Footer';
-import Header from './compornents/Header';
-import List from './compornents/List';
-import Popup from './compornents/Popup';
+import { useState } from 'react';
 import './style.scss';
 
 function App() {
-	let student = {
-		name: 'David',
-		age: 20,
-	};
+	console.log('app');
+	//const [상태값, 상태변경전용함수] = useState(초기값);
+	//리엑트 컴포넌트는 State값이 State변경함수로 변경되어야지만 컴포넌트가 재렌더링됨
+	//숫자를 증가, 감소 시킬때 전위증강 연산자를 써야지만 해당 렌더링 사이클에서 바로 값이 변뎡되면서 다음번 렌더링에 반영됨
+	let [Num, setNum] = useState(0);
+	console.log(Num);
 
-	let newStudent = { ...student };
-	newStudent.name = 'Andy';
-	console.log(newStudent);
-	console.log(student);
-
-	let isPop = true;
-	let isFooter = false;
 	return (
 		<>
-			<Header />
-			{isFooter && <Footer />}
-			{isPop ? <Popup /> : null}
-			<List />
+			<h1>{Num}</h1>
+			<button onClick={() => setNum(--Num)}>minus</button>
+			<button onClick={() => setNum(++Num)}>plus</button>
 		</>
 	);
 }
